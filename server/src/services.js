@@ -84,6 +84,7 @@ export async function sanitizeUser(user, preloaded = {}) {
 }
 
 async function enrichCircular(circular, cellMap) {
+  const { fileData: _fileData, ...safeCircular } = circular;
   const recipients = await User.find({ cellId: circular.cellId }).lean();
   const recipientMap = new Map((circular.deliveries ?? []).map((delivery) => [delivery.userId, delivery]));
 
@@ -121,8 +122,17 @@ async function enrichCircular(circular, cellMap) {
     recipientPayload.find((recipient) => recipient.role === roles.CELL_HEAD) ?? null;
 
   return {
-    ...circular,
+    ...safeCircular,
     cellName: cellMap.get(circular.cellId) ?? "All Cells",
+    attachment: circular.fileName
+      ? {
+          fileName: circular.fileName,
+          fileMimeType: circular.fileMimeType,
+          fileSize: circular.fileSize,
+          hasStoredFile: Boolean(circular.fileData),
+          viewUrl: `/api/circulars/${circular.id}/attachment`,
+        }
+      : null,
     recipients: recipientPayload,
     deliverySummary: {
       total: recipientPayload.length,
@@ -278,6 +288,7 @@ export async function createCircular({
     fileName: attachment?.fileName ?? "",
     fileMimeType: attachment?.fileMimeType ?? "",
     fileSize: attachment?.fileSize ?? 0,
+    fileData: attachment?.buffer ?? null,
     createdAt: new Date(),
     readBy: [],
     deliveries: recipients.map((recipient) => ({

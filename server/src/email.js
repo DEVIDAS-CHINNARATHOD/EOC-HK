@@ -48,12 +48,21 @@ function getTestEmailRecipient() {
 }
 
 function resolveDeliveryAddress(recipient) {
+  const testMode = emailTestModeEnabled();
   const testRecipient = getTestEmailRecipient();
 
-  if (emailTestModeEnabled() && testRecipient) {
+  if (testMode && testRecipient) {
     return {
       address: testRecipient,
       testMode: true,
+    };
+  }
+
+  if (testMode) {
+    return {
+      address: "",
+      testMode: true,
+      testModeMissingRecipient: true,
     };
   }
 
@@ -94,7 +103,16 @@ function buildCircularHtml({ recipient, circular, cellName, testMode }) {
 }
 
 export async function sendCircularEmail({ recipient, circular, cellName, attachment }) {
-  const { address: deliveryAddress, testMode } = resolveDeliveryAddress(recipient);
+  const { address: deliveryAddress, testMode, testModeMissingRecipient } =
+    resolveDeliveryAddress(recipient);
+
+  if (testModeMissingRecipient) {
+    return {
+      status: "skipped",
+      sentAt: null,
+      error: "EMAIL_TEST_MODE is enabled but EMAIL_TEST_RECIPIENT is empty",
+    };
+  }
 
   if (!deliveryAddress) {
     return {

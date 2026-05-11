@@ -60,6 +60,7 @@ const circularSchema = new mongoose.Schema(
     fileName: { type: String, default: "" },
     fileMimeType: { type: String, default: "" },
     fileSize: { type: Number, default: 0 },
+    fileData: { type: Buffer, default: null },
     createdAt: { type: Date, default: Date.now, index: true },
     readBy: [{ type: String }],
     deliveries: [deliverySchema],

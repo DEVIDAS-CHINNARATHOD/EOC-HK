@@ -4,12 +4,13 @@ import express from "express";
 import cors from "cors";
 import jwt from "jsonwebtoken";
 import multer from "multer";
+import { analyzeCircularUpload } from "./circular-analyzer.js";
 import { connectDatabase, ensureSeedData } from "./db.js";
 import { roles } from "./data.js";
 import { getMailerStatus } from "./email.js";
 import { readEnv, readNumberEnv } from "./env.js";
 import { getMemoryStoreReason, isMemoryStoreEnabled } from "./memory-store.js";
-import { Circular, User } from "./models.js";
+import { Cell, Circular, User } from "./models.js";
 import {
   buildBootstrap,
   canHeadManageCell,
@@ -74,6 +75,30 @@ function buildAttachment(file) {
   };
 }
 
+function storedFileBuffer(value) {
+  if (!value) {
+    return null;
+  }
+
+  if (Buffer.isBuffer(value)) {
+    return value;
+  }
+
+  if (value instanceof Uint8Array) {
+    return Buffer.from(value);
+  }
+
+  if (value.buffer instanceof Uint8Array) {
+    return Buffer.from(value.buffer);
+  }
+
+  if (value.type === "Buffer" && Array.isArray(value.data)) {
+    return Buffer.from(value.data);
+  }
+
+  return null;
+}
+
 async function authRequired(req, res, next) {
   // Always use admin user - no authentication required
   let fallbackUser =
@@ -128,6 +153,55 @@ app.get("/api/bootstrap", authRequired, async (req, res) => {
   res.json(await buildBootstrap(req.user));
 });
 
+app.post(
+  "/api/circulars/analyze",
+  authRequired,
+  allowRoles(roles.ADMIN),
+  upload.single("file"),
+  async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ message: "Upload a PDF circular to analyze." });
+      }
+
+      if (req.file.mimetype !== "application/pdf") {
+        return res.status(400).json({ message: "Only PDF circular attachments are supported." });
+      }
+
+      const cells = await Cell.find().lean();
+      return res.json(await analyzeCircularUpload({ file: req.file, cells }));
+    } catch (error) {
+      return res.status(error.status || 500).json({
+        message: error.message || "Unable to analyze the circular PDF.",
+      });
+    }
+  },
+);
+
+app.get("/api/circulars/:id/attachment", authRequired, async (req, res) => {
+  const circular = await Circular.findOne({ id: req.params.id }).lean();
+  if (!circular) {
+    return res.status(404).json({ message: "Circular not found" });
+  }
+
+  if (!(await hasCellAccess(req.user, circular.cellId))) {
+    return res.status(403).json({ message: "No cross-cell visibility allowed" });
+  }
+
+  const fileBuffer = storedFileBuffer(circular.fileData);
+  if (!fileBuffer || !circular.fileName) {
+    return res.status(404).json({
+      message: "This circular does not have a stored PDF attachment.",
+    });
+  }
+
+  const fileName = safeAttachmentName(circular.fileName);
+  res.setHeader("Content-Type", circular.fileMimeType || "application/pdf");
+  res.setHeader("Content-Length", fileBuffer.length);
+  res.setHeader("Content-Disposition", `inline; filename="${fileName}"`);
+  return res.end(fileBuffer);
+});
+
 app.get("/api/circulars/:id", authRequired, async (req, res) => {
   const circular = await Circular.findOne({ id: req.params.id }).lean();
   if (!circular) {
@@ -138,7 +212,19 @@ app.get("/api/circulars/:id", authRequired, async (req, res) => {
     return res.status(403).json({ message: "No cross-cell visibility allowed" });
   }
 
-  return res.json(circular);
+  const { fileData: _fileData, ...safeCircular } = circular;
+  return res.json({
+    ...safeCircular,
+    attachment: circular.fileName
+      ? {
+          fileName: circular.fileName,
+          fileMimeType: circular.fileMimeType,
+          fileSize: circular.fileSize,
+          hasStoredFile: Boolean(circular.fileData),
+          viewUrl: `/api/circulars/${circular.id}/attachment`,
+        }
+      : null,
+  });
 });
 
 app.post(

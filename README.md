@@ -39,6 +39,12 @@ Create `server/.env` from `server/.env.example` and set:
   - `EMAIL_TEST_MODE`
   - `EMAIL_TEST_RECIPIENT`
 
+Set `EMAIL_TEST_MODE=true` and `EMAIL_TEST_RECIPIENT=your-email@example.com` to redirect all circular emails to one test inbox instead of real cell members.
+- Optional AI circular autofill:
+  - `GROQ_API_KEY`
+  - `GROQ_MODEL`
+  - `GROQ_VISION_MODEL`
+
 Create `client/.env` from `client/.env.example` if you want to override the frontend dev port or proxy target:
 
 - `VITE_PORT`
@@ -46,7 +52,7 @@ Create `client/.env` from `client/.env.example` if you want to override the fron
 - `VITE_PROXY_TARGET`
 
 If SMTP is not configured, circulars are still saved and delivery rows are marked as `not_configured`.
-Uploaded PDFs are not stored on disk or in Cloudinary. They are attached directly to outgoing emails and only attachment metadata is retained in the circular history.
+Uploaded PDFs are stored with the circular record in MongoDB so past circulars can be viewed from the Circulars page. They are also attached directly to outgoing emails.
 
 Production recommendation:
 
