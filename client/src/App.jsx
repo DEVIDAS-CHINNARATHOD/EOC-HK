@@ -2,6 +2,10 @@ import React, { useEffect, useMemo, useState } from "react";
 
 function resolveApiBase() {
   const rawBase = import.meta.env.VITE_API_BASE || "";
+  if (import.meta.env.PROD && !rawBase.trim()) {
+    throw new Error("VITE_API_BASE must be set for production builds.");
+  }
+
   return rawBase.endsWith("/") ? rawBase.slice(0, -1) : rawBase;
 }
 

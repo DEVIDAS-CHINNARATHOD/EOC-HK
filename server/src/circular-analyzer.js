@@ -1,11 +1,19 @@
 import { PDFParse } from "pdf-parse";
 import { readEnv } from "./env.js";
 
-const GROQ_CHAT_COMPLETIONS_URL = "https://api.groq.com/openai/v1/chat/completions";
 const DEFAULT_GROQ_MODEL = "llama-3.3-70b-versatile";
 const DEFAULT_GROQ_VISION_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct";
 const MAX_ANALYSIS_CHARS = 14000;
 const MAX_OCR_PAGES = 5;
+
+function groqChatCompletionsUrl() {
+  const url = readEnv("GROQ_CHAT_COMPLETIONS_URL");
+  if (!url) {
+    throw new Error("GROQ_CHAT_COMPLETIONS_URL must be set when GROQ_API_KEY is configured.");
+  }
+
+  return url;
+}
 
 function cleanText(value = "") {
   return String(value)
@@ -187,7 +195,7 @@ async function askGroqForCircularMetadata({ text, fileName, cells }) {
   const cellList = cells.map((cell) => `- ${cell.id}: ${cell.name}`).join("\n");
   const analysisText = text.slice(0, MAX_ANALYSIS_CHARS);
 
-  const response = await fetch(GROQ_CHAT_COMPLETIONS_URL, {
+  const response = await fetch(groqChatCompletionsUrl(), {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
@@ -245,7 +253,7 @@ async function askGroqForCircularImages({ imageUrls, fileName, cells }) {
   const model = readEnv("GROQ_VISION_MODEL", DEFAULT_GROQ_VISION_MODEL);
   const cellList = cells.map((cell) => `- ${cell.id}: ${cell.name}`).join("\n");
 
-  const response = await fetch(GROQ_CHAT_COMPLETIONS_URL, {
+  const response = await fetch(groqChatCompletionsUrl(), {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,

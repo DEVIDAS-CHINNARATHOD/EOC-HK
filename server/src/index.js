@@ -31,6 +31,10 @@ const JWT_SECRET = readEnv("JWT_SECRET");
 const ADMIN_EMAIL = readEnv("ADMIN_EMAIL");
 const ADMIN_PASSWORD = readEnv("ADMIN_PASSWORD");
 const MAX_ATTACHMENT_SIZE_MB = readNumberEnv("MAX_ATTACHMENT_SIZE_MB", 10);
+const CLIENT_ORIGINS = readEnv("CLIENT_ORIGINS")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 if (!JWT_SECRET) {
   throw new Error("JWT_SECRET must be set before starting the server");
@@ -43,11 +47,22 @@ const upload = multer({
   },
 });
 
-app.use(cors());
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || CLIENT_ORIGINS.length === 0 || CLIENT_ORIGINS.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error("Origin is not allowed by CORS"));
+    },
+  }),
+);
 app.use(express.json());
 
 function publicBaseUrl() {
-  return readEnv("PUBLIC_APP_URL", `http://localhost:${PORT}`);
+  return readEnv("PUBLIC_APP_URL") || `port ${PORT}`;
 }
 
 function safeAttachmentName(originalName) {

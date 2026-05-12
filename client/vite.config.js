@@ -26,23 +26,23 @@ function readServerEnvValue(key) {
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, __dirname, "");
-  const serverPort = readServerEnvValue("PORT") || "4000";
   const serverPublicUrl = readServerEnvValue("PUBLIC_APP_URL");
-  const proxyTarget =
-    env.VITE_PROXY_TARGET?.trim() ||
-    serverPublicUrl ||
-    `http://localhost:${serverPort}`;
+  const proxyTarget = env.VITE_PROXY_TARGET?.trim() || serverPublicUrl;
+  const server = {
+    port: Number(env.VITE_PORT || 5173),
+  };
+
+  if (proxyTarget) {
+    server.proxy = {
+      "/api": {
+        target: proxyTarget,
+        changeOrigin: true,
+      },
+    };
+  }
 
   return {
     plugins: [react()],
-    server: {
-      port: Number(env.VITE_PORT || 5173),
-      proxy: {
-        "/api": {
-          target: proxyTarget,
-          changeOrigin: true,
-        },
-      },
-    },
+    server,
   };
 });
