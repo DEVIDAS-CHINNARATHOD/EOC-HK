@@ -21,3 +21,4 @@ Commit #19 | Meme: How do you check if a webpage is HTML5? -> Try it out on Inte
 Commit #20 | Meme: Why do C# and Java developers keep breaking their keyboards? -> Because they use a strongly typed language.
 Commit #21 | Meme: Hey, wanna hear a joke? -> Parsing HTML with regex.
 Commit #22 | Meme: 3 SQL statements walk into a NoSQL bar. Soon, they walk out -> They couldn't find a table.
+Commit #23 | Meme: 3 SQL statements walk into a NoSQL bar. Soon, they walk out -> They couldn't find a table.
