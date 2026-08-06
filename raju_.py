@@ -33,3 +33,4 @@ Commit #31 | Meme: Why dot net developers don't wear glasses? -> Because they se
 Commit #32 | Meme: A programmer puts two glasses on his bedside table before going to sleep. -> A full one, in case he gets thirsty, and an empty one, in case he doesn’t.
 Commit #33 | Meme: What do you get when you cross a React developer with a mathematician? -> A function component.
 Commit #34 | Meme: How many programmers does it take to change a lightbulb? -> None that's a hardware problem
+Commit #35 | Meme: Why did the programmer go broke? -> He used up all his cache
