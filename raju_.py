@@ -28,3 +28,4 @@ Commit #26 | Meme: Why did the programmer's wife leave him? -> He didn't know ho
 Commit #27 | Meme: Why did the programmer always carry a pencil? -> They preferred to write in C#.
 Commit #28 | Meme: Why dot net developers don't wear glasses? -> Because they see sharp.
 Commit #29 | Meme: Why did the developer break up with their keyboard? -> It just wasn't their type anymore.
+Commit #30 | Meme: Why did the developer go to therapy? -> They had too many unresolved issues.
