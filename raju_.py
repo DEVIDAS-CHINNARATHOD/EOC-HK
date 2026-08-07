@@ -23,3 +23,4 @@ Commit #21 | Meme: Hey, wanna hear a joke? -> Parsing HTML with regex.
 Commit #22 | Meme: 3 SQL statements walk into a NoSQL bar. Soon, they walk out -> They couldn't find a table.
 Commit #23 | Meme: 3 SQL statements walk into a NoSQL bar. Soon, they walk out -> They couldn't find a table.
 Commit #24 | Meme: Why did the private classes break up? -> Because they never saw each other.
+Commit #25 | Meme: Why was the font always tired? -> It was always bold.
