@@ -38,3 +38,4 @@ Commit #36 | Meme: A user interface is like a joke. -> If you have to explain it
 Commit #37 | Meme: Why did the programmer always carry a pencil? -> They preferred to write in C#.
 Commit #38 | Meme: Why did the programmer go broke? -> He used up all his cache
 Commit #39 | Meme: Lady: How do I spread love in this cruel world? -> Random Dude: [...💘]
+Commit #40 | Meme: Why did the programmer go to art school? -> He wanted to learn how to code outside the box.
