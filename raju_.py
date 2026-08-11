@@ -48,3 +48,4 @@ Commit #46 | Meme: What's the best thing about a Boolean? -> Even if you're wron
 Commit #47 | Meme: Why was the JavaScript developer sad? -> He didn't know how to null his feelings.
 Commit #48 | Meme: Why did the programmer go to art school? -> He wanted to learn how to code outside the box.
 Commit #49 | Meme: Which song would an exception sing? -> Can't catch me - Avicii
+Commit #50 | Meme: 3 SQL statements walk into a NoSQL bar. Soon, they walk out -> They couldn't find a table.
