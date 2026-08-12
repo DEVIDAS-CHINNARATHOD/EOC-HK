@@ -42,3 +42,4 @@ Commit #40 | Meme: Why did the programmer go to art school? -> He wanted to lear
 Commit #41 | Meme: How many programmers does it take to change a lightbulb? -> None that's a hardware problem
 Commit #42 | Meme: What's the best part about TCP jokes? -> I get to keep telling them until you get them.
 Commit #43 | Meme: Why don't React developers like nature? -> They prefer the virtual DOM.
+Commit #44 | Meme: Why did the developer go to therapy? -> They had too many unresolved issues.
