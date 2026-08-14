@@ -22,3 +22,4 @@ Commit #20 | Meme: Why do C# and Java developers keep breaking their keyboards? 
 Commit #21 | Meme: Hey, wanna hear a joke? -> Parsing HTML with regex.
 Commit #22 | Meme: 3 SQL statements walk into a NoSQL bar. Soon, they walk out -> They couldn't find a table.
 Commit #23 | Meme: 3 SQL statements walk into a NoSQL bar. Soon, they walk out -> They couldn't find a table.
+Commit #24 | Meme: Why did the private classes break up? -> Because they never saw each other.
