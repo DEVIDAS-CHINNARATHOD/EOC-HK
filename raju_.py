@@ -26,3 +26,4 @@ Commit #24 | Meme: Why did the private classes break up? -> Because they never s
 Commit #25 | Meme: Why was the font always tired? -> It was always bold.
 Commit #26 | Meme: Why did the programmer's wife leave him? -> He didn't know how to commit.
 Commit #27 | Meme: Why did the programmer always carry a pencil? -> They preferred to write in C#.
+Commit #28 | Meme: Why dot net developers don't wear glasses? -> Because they see sharp.
