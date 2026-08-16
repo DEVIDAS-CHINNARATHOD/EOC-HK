@@ -43,3 +43,4 @@ Commit #41 | Meme: How many programmers does it take to change a lightbulb? -> N
 Commit #42 | Meme: What's the best part about TCP jokes? -> I get to keep telling them until you get them.
 Commit #43 | Meme: Why don't React developers like nature? -> They prefer the virtual DOM.
 Commit #44 | Meme: Why did the developer go to therapy? -> They had too many unresolved issues.
+Commit #45 | Meme: Why do C# and Java developers keep breaking their keyboards? -> Because they use a strongly typed language.
