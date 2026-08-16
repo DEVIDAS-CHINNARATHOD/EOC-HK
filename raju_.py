@@ -8,3 +8,4 @@ Commit #6 | Meme: What's the best thing about a Boolean? -> Even if you're wrong
 Commit #7 | Meme: Why did the programmer bring a ladder to work? -> They heard the code needed to be debugged from a higher level.
 Commit #8 | Meme: Why did the programmer always mix up Halloween and Christmas? -> Because Oct 31 equals Dec 25.
 Commit #9 | Meme: Why did the programmer bring a broom to work? -> To clean up all the bugs.
+Commit #10 | Meme: How do you comfort a designer? -> You give them some space... between the elements.
