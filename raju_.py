@@ -18,3 +18,4 @@ Commit #16 | Meme: Why did the developer go broke? -> They kept spending all the
 Commit #17 | Meme: I just got fired from my job at the keyboard factory. -> They told me I wasn't putting in enough shifts.
 Commit #18 | Meme: Which song would an exception sing? -> Can't catch me - Avicii
 Commit #19 | Meme: How do you check if a webpage is HTML5? -> Try it out on Internet Explorer
+Commit #20 | Meme: Why do C# and Java developers keep breaking their keyboards? -> Because they use a strongly typed language.
