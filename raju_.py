@@ -44,3 +44,4 @@ Commit #42 | Meme: What's the best part about TCP jokes? -> I get to keep tellin
 Commit #43 | Meme: Why don't React developers like nature? -> They prefer the virtual DOM.
 Commit #44 | Meme: Why did the developer go to therapy? -> They had too many unresolved issues.
 Commit #45 | Meme: Why do C# and Java developers keep breaking their keyboards? -> Because they use a strongly typed language.
+Commit #46 | Meme: What's the best thing about a Boolean? -> Even if you're wrong, you're only off by a bit.
