@@ -9,3 +9,4 @@ Commit #7 | Meme: Why did the programmer bring a ladder to work? -> They heard t
 Commit #8 | Meme: Why did the programmer always mix up Halloween and Christmas? -> Because Oct 31 equals Dec 25.
 Commit #9 | Meme: Why did the programmer bring a broom to work? -> To clean up all the bugs.
 Commit #10 | Meme: How do you comfort a designer? -> You give them some space... between the elements.
+Commit #11 | Meme: Why was the designer always cold? -> Because they always used too much ice-olation.
