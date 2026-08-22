@@ -16,3 +16,4 @@ Commit #14 | Meme: How many programmers does it take to change a lightbulb? -> N
 Commit #15 | Meme: What do you get when you cross a React developer with a mathematician? -> A function component.
 Commit #16 | Meme: Why did the developer go broke? -> They kept spending all their cache.
 Commit #17 | Meme: I just got fired from my job at the keyboard factory. -> They told me I wasn't putting in enough shifts.
+Commit #18 | Meme: Which song would an exception sing? -> Can't catch me - Avicii
