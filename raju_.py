@@ -19,3 +19,4 @@ Commit #17 | Meme: I just got fired from my job at the keyboard factory. -> They
 Commit #18 | Meme: Which song would an exception sing? -> Can't catch me - Avicii
 Commit #19 | Meme: How do you check if a webpage is HTML5? -> Try it out on Internet Explorer
 Commit #20 | Meme: Why do C# and Java developers keep breaking their keyboards? -> Because they use a strongly typed language.
+Commit #21 | Meme: Hey, wanna hear a joke? -> Parsing HTML with regex.
