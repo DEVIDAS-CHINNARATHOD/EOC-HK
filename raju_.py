@@ -31,3 +31,4 @@ Commit #29 | Meme: Why did the developer break up with their keyboard? -> It jus
 Commit #30 | Meme: Why did the developer go to therapy? -> They had too many unresolved issues.
 Commit #31 | Meme: Why dot net developers don't wear glasses? -> Because they see sharp.
 Commit #32 | Meme: A programmer puts two glasses on his bedside table before going to sleep. -> A full one, in case he gets thirsty, and an empty one, in case he doesn’t.
+Commit #33 | Meme: What do you get when you cross a React developer with a mathematician? -> A function component.
