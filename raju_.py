@@ -11,3 +11,4 @@ Commit #9 | Meme: Why did the programmer bring a broom to work? -> To clean up a
 Commit #10 | Meme: How do you comfort a designer? -> You give them some space... between the elements.
 Commit #11 | Meme: Why was the designer always cold? -> Because they always used too much ice-olation.
 Commit #12 | Meme: Why did the developer go to therapy? -> They had too many unresolved issues.
+Commit #13 | Meme: How do you check if a webpage is HTML5? -> Try it out on Internet Explorer
