@@ -40,3 +40,4 @@ Commit #38 | Meme: Why did the programmer go broke? -> He used up all his cache
 Commit #39 | Meme: Lady: How do I spread love in this cruel world? -> Random Dude: [...💘]
 Commit #40 | Meme: Why did the programmer go to art school? -> He wanted to learn how to code outside the box.
 Commit #41 | Meme: How many programmers does it take to change a lightbulb? -> None that's a hardware problem
+Commit #42 | Meme: What's the best part about TCP jokes? -> I get to keep telling them until you get them.
