@@ -25,3 +25,4 @@ Commit #23 | Meme: 3 SQL statements walk into a NoSQL bar. Soon, they walk out -
 Commit #24 | Meme: Why did the private classes break up? -> Because they never saw each other.
 Commit #25 | Meme: Why was the font always tired? -> It was always bold.
 Commit #26 | Meme: Why did the programmer's wife leave him? -> He didn't know how to commit.
+Commit #27 | Meme: Why did the programmer always carry a pencil? -> They preferred to write in C#.
